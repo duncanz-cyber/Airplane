@@ -13,15 +13,7 @@ function selectPlane(color) {
 function startGame() {
   let posX = 175;
   let obsY = 0;
-  let obsX = Math.floor(Math.random() * 370);
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft' || e.key === 'a') posX -= 10;
-    if (e.key === 'ArrowRight' || e.key === 'd') posX += 10;
-    if (posX < 0) posX = 0;
-    if (posX > 350) posX = 350;
-    plane.style.left = posX + 'px';
-  });
+  let obsX = Math.floor(Math.random() * 
 
   function fall() {
     obsY += 5;
@@ -96,3 +88,31 @@ function moveEnemy() {
   setTimeout(moveEnemy, 30);
 }
 moveEnemy();
+#joystick-container {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 120px;
+  height: 120px;
+  touch-action: none;
+}
+
+#joystick-base {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #333;
+  border-radius: 50%;
+  position: relative;
+  background: #eee;
+}
+
+#joystick-knob {
+  width: 50px;
+  height: 50px;
+  background: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  touch-action: none;
+}
