@@ -50,3 +50,55 @@ body {
   font-size: 18px;
   margin-top: 10px;
 }
+body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  background: #111;
+  border: 2px solid white;
+}
+
+#controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+#joystick {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  position: relative;
+  touch-action: none;
+}
+
+#knob {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+#shootBtn {
+  margin-left: 20px;
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  border-radius: 50%;
+  border: none;
+  background: red;
+  color: white;
+}
