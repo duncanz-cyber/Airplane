@@ -29,6 +29,22 @@ body {
   top: 0;
   left: 100px;
 }
+#enemy {
+  position: absolute;
+  top: 10px;
+  left: 150px;
+  width: 50px;
+}
+
+#bullet {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: url('assets/bullet.png') no-repeat center center / contain;
+  top: 30px;
+  left: 170px;
+  display: none;
+}
 
 #score {
   font-size: 18px;
