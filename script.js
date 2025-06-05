@@ -116,3 +116,56 @@ moveEnemy();
   left: 35px;
   touch-action: none;
 }
+function enableJoystick() {
+  const knob = document.getElementById("joystick-knob");
+  const base = document.getElementById("joystick-base");
+  let dragging = false;
+  let centerX = base.offsetLeft + base.offsetWidth / 2;
+  let maxDistance = 40;
+
+  function moveKnob(clientX) {
+    const dx = clientX - centerX;
+    const clampedDx = Math.max(-maxDistance, Math.min(maxDistance, dx));
+    knob.style.left = 35 + clampedDx + 'px';
+
+    // Move the plane
+    let planeX = parseInt(plane.style.left || 0);
+    planeX += clampedDx * 0.1;
+    planeX = Math.max(0, Math.min(350, planeX));
+    plane.style.left = planeX + 'px';
+  }
+
+  function resetKnob() {
+    knob.style.left = '35px';
+  }
+
+  knob.addEventListener("mousedown", e => {
+    dragging = true;
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (dragging) moveKnob(e.clientX);
+  });
+
+  document.addEventListener("mouseup", () => {
+    dragging = false;
+    resetKnob();
+  });
+
+  // Touch support
+  knob.addEventListener("touchstart", e => {
+    dragging = true;
+    e.preventDefault();
+  });
+
+  document.addEventListener("touchmove", e => {
+    if (dragging) moveKnob(e.touches[0].clientX);
+  });
+
+  document.addEventListener("touchend", () => {
+    dragging = false;
+    resetKnob();
+  });
+}
+
+enableJoystick();
