@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Airplane Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Choose Your Plane</h1>
+  <div id="menu">
+    <button onclick="selectPlane('red')">Red</button>
+    <button onclick="selectPlane('blue')">Blue</button>
+    <button onclick="selectPlane('green')">Green</button>
+  </div>
+  <div id="game" style="display:none;">
+    <img id="plane" src="" alt="Airplane">
+    <div id="obstacle"></div>
+    <div id="score">Score: 0</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

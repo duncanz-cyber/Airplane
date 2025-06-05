@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #cce7ff;
+}
+
+#game {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  margin: 0 auto;
+  background: lightblue;
+  overflow: hidden;
+  border: 2px solid #000;
+}
+
+#plane {
+  position: absolute;
+  bottom: 10px;
+  left: 175px;
+  width: 50px;
+}
+
+#obstacle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('assets/obstacle.png') no-repeat center center / cover;
+  top: 0;
+  left: 100px;
+}
+
+#score {
+  font-size: 18px;
+  margin-top: 10px;
+}
