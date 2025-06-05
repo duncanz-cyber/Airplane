@@ -53,3 +53,46 @@ function startGame() {
 
   fall();
 }
+let enemy = document.getElementById('enemy');
+let bullet = document.getElementById('bullet');
+let enemyX = 150;
+let direction = 1; // 1 = right, -1 = left
+let bulletY = 30;
+
+function moveEnemy() {
+  enemyX += direction * 2;
+  if (enemyX < 0 || enemyX > 350) direction *= -1;
+  enemy.style.left = enemyX + 'px';
+
+  // Shoot occasionally
+  if (Math.random() < 0.03 && bullet.style.display === 'none') {
+    bullet.style.display = 'block';
+    bullet.style.left = (enemyX + 20) + 'px';
+    bulletY = 30;
+  }
+
+  if (bullet.style.display === 'block') {
+    bulletY += 5;
+    bullet.style.top = bulletY + 'px';
+
+    // Check collision with player
+    const planeRect = plane.getBoundingClientRect();
+    const bulletRect = bullet.getBoundingClientRect();
+    if (
+      planeRect.left < bulletRect.right &&
+      planeRect.right > bulletRect.left &&
+      planeRect.top < bulletRect.bottom &&
+      planeRect.bottom > bulletRect.top
+    ) {
+      alert('Game Over! You were shot!');
+      location.reload();
+    }
+
+    if (bulletY > 600) {
+      bullet.style.display = 'none';
+    }
+  }
+
+  setTimeout(moveEnemy, 30);
+}
+moveEnemy();
