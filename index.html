@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Airplane Game</title>
+  <meta charset="UTF-8">
+  <title>Airplane Battle</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Choose Your Plane</h1>
-  <div id="menu">
-    <button onclick="selectPlane('red')">Red</button>
-    <button onclick="selectPlane('blue')">Blue</button>
-    <button onclick="selectPlane('green')">Green</button>
+  <canvas id="gameCanvas" width="480" height="640"></canvas>
+
+  <div id="controls">
+    <div id="joystick">
+      <div id="knob"></div>
+    </div>
+    <button id="shootBtn">🔫</button>
   </div>
-  <div id="game" style="display:none;">
-    <img id="plane" src="" alt="Airplane">
-    <div id="obstacle"></div>
-    <div id="score">Score: 0</div>
-  </div>
-  <script src="script.js"></script>
+
+  <script src="game.js"></script>
 </body>
 </html>
-<img id="enemy" src="assets/enemy.png" alt="Enemy Plane">
-<div id="bullet"></div>
-<div id="joystick-container">
-  <div id="joystick-base">
-    <div id="joystick-knob"></div>
-  </div>
-</div>
